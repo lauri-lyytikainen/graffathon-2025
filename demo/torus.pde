@@ -75,40 +75,35 @@ class TorusScene extends EffectScene {
         }
 
         // Render the torus with the solution applied to the surface
-        for (int i = 0; i < numU - 1; i++) {  // Iterate until numU - 1
+        for (int i = 0; i < numU - 1; i++) {  // Loop through all rows, including the last for wrapping
+            int inext = (i + 1) % numU;   // Wrap around for seamless connection
             beginShape(TRIANGLE_STRIP);
-            for (int j = 0; j < numV; j++) {  // Iterate until numV
+            for (int j = 0; j <= numV; j++) {  // Go one past the end to wrap v
+                int jmod = j % numV;           // Wrap v index
+
+                // First vertex (i, jmod)
                 float u = map(i, 0, numU, 0, TWO_PI);
-                float v = map(j, 0, numV, 0, TWO_PI);
-                
-                // Apply the solution to the torus (displace the vertex based on the solution)
+                float v = map(jmod, 0, numV, 0, TWO_PI);
                 float x1 = (R + r * cos(v)) * cos(u);
                 float y1 = (R + r * cos(v)) * sin(u);
                 float z1 = r * sin(v);
-                
-                // Normalize the displacement to color
-                float displacement1 = uValues[i][j];
+                float displacement1 = uValues[i][jmod];
                 float normalizedVal1 = map(displacement1, minVal, maxVal, 0, 1);
-                // Map the normalized value to a color (e.g., a heatmap)
-                color c1 = lerpColor(color(0, 0, 255), color(255, 0, 0), normalizedVal1);  // Blue to Red color range
+                color c1 = lerpColor(color(0, 0, 255), color(255, 0, 0), normalizedVal1);
                 fill(c1);
-                stroke(255);  // Optional: add stroke for better contrast
+                stroke(255);
                 vertex(x1 + displacement1, y1 + displacement1, z1 + displacement1);
-                
-                // Avoid out-of-bounds error by checking array limits
-                if (i + 1 < numU) {  // Ensure i + 1 is within bounds
-                    u = map(i + 1, 0, numU, 0, TWO_PI);
-                    // Displace the point using the solution to the PDE
-                    float x2 = (R + r * cos(v)) * cos(u);
-                    float y2 = (R + r * cos(v)) * sin(u);
-                    float z2 = r * sin(v);
-                    
-                    float displacement2 = uValues[i + 1][j];
-                    float normalizedVal2 = map(displacement2, minVal, maxVal, 0, 1);
-                    color c2 = lerpColor(color(0, 0, 255), color(255, 0, 0), normalizedVal2);  // Blue to Red color range
-                    fill(c2);
-                    vertex(x2 + displacement2, y2 + displacement2, z2 + displacement2);
-                }
+
+                // Second vertex (inext, jmod)
+                float unext = map(inext, 0, numU, 0, TWO_PI);
+                float x2 = (R + r * cos(v)) * cos(unext);
+                float y2 = (R + r * cos(v)) * sin(unext);
+                float z2 = r * sin(v);
+                float displacement2 = uValues[inext][jmod];
+                float normalizedVal2 = map(displacement2, minVal, maxVal, 0, 1);
+                color c2 = lerpColor(color(0, 0, 255), color(255, 0, 0), normalizedVal2);
+                fill(c2);
+                vertex(x2 + displacement2, y2 + displacement2, z2 + displacement2);
             }
             endShape();
         }
