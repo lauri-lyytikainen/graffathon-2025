@@ -2,8 +2,8 @@ import moonlander.library.*;
 
 import ddf.minim.*;
 
-int CANVAS_WIDTH = 480;
-int CANVAS_HEIGHT = 360;
+int CANVAS_WIDTH = 720;
+int CANVAS_HEIGHT = 480;
 
 Moonlander moonlander;
 SceneHandler sceneHandler;
