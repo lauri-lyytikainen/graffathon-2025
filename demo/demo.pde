@@ -21,6 +21,7 @@ void setup() {
 
   moonlander = Moonlander.initWithSoundtrack(this, "../glxblt_-_swookie.mp3", 138, 4);
   moonlander.start();
+  sceneHandler.initializeScenes();
 }
 
 void draw() {

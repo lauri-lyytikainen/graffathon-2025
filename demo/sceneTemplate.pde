@@ -1,5 +1,6 @@
 abstract class EffectScene {
-    public double startTime, endTime, normalizedTime;
+    public double startTime, endTime;
+    public float normalizedTime;
     public EffectScene(float startTime, float endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
@@ -7,7 +8,7 @@ abstract class EffectScene {
     }
     public void update(float time) {
         if (time >= startTime && time < endTime) {
-            normalizedTime = (time - startTime) / (endTime - startTime);
+            normalizedTime = (float)((time - startTime) / (endTime - startTime));
         } else if (time >= endTime) {
             normalizedTime = 1.0;
         } else {
@@ -15,23 +16,31 @@ abstract class EffectScene {
         }
         draw((float)time);
     }
-
-    private abstract void draw(float time); // Abstract method to be implemented by subclasses
+    public abstract void setup();
+    public abstract void draw(float time);
 }
 class SceneHandler {
     ArrayList<EffectScene> scenes;
     EffectScene currentScene;
     public SceneHandler() {
         scenes = new ArrayList<EffectScene>();
+        currentScene = null;
     }
     public void addScene(EffectScene scene) {
         scenes.add(scene);
     }
+    public void initializeScenes() {
+        scenes.get(0).setup(); // Setup the first scene
+        resetEverything();
+
+    }
+
     public void drawScenes(double time) {
         for (EffectScene scene : scenes) {
             if (time >= scene.startTime && time < scene.endTime) {
                 if (currentScene != null && currentScene != scene) {
                     resetEverything();
+                    scene.setup();
                 }
                 currentScene = scene;
                 scene.update((float)time);
@@ -46,6 +55,6 @@ void resetEverything() {
     strokeWeight(1);
     camera();
     lights();
-    blendMode(NORMAL);
+    blendMode(BLEND);
     colorMode(RGB);
 }
