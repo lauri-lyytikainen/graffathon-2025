@@ -1,19 +1,14 @@
-<sync rows="512">
+<sync rows="128">
 	<tracks>
 		<track name="bg_color">
-			<key value="255" interpolation="0" row="128"/>
-			<key value="0" interpolation="0" row="136"/>
-			<key value="255" interpolation="0" row="140"/>
-			<key value="0" interpolation="0" row="144"/>
-			<key value="255" interpolation="0" row="152"/>
-			<key value="0" interpolation="0" row="156"/>
-			<key value="255" interpolation="0" row="160"/>
-			<key value="0" interpolation="0" row="168"/>
-			<key value="255" interpolation="0" row="172"/>
-			<key value="0" interpolation="0" row="176"/>
+			<key row="0" value="0" interpolation="0"/>
+			<key row="2" value="0" interpolation="3"/>
+			<key row="8" value="255" interpolation="0"/>
+			<key row="9" value="226" interpolation="0"/>
+			<key row="10" value="228" interpolation="0"/>
+			<key row="16" value="0" interpolation="1"/>
+			<key row="24" value="255" interpolation="0"/>
 		</track>
 	</tracks>
-	<bookmarks>
-		<bookmark row="119"/>
-	</bookmarks>
+	<bookmarks/>
 </sync>

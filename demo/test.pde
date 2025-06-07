@@ -3,9 +3,11 @@ class CubeScene extends EffectScene {
     public CubeScene(float startTime, float endTime) {
         super(startTime, endTime);
     }
+    
+    public void setup()
+    {}
 
-    @Override
-    public void draw(double time) {
+    public void draw(float time) {
         background(0);
         lights();
         translate(width / 2, height / 2, -200);
