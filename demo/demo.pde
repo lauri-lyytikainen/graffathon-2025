@@ -17,6 +17,7 @@ void setup() {
   frameRate(60);
 
   sceneHandler = new SceneHandler();
+  sceneHandler.addScene(new IntroScene(0.0, 14.0));
   sceneHandler.addScene(new GalaxyScene(14.0, 28.0));
   sceneHandler.addScene(new MetaBallScene(28.0, 42.0));
 
