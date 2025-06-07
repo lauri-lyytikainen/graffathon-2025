@@ -1,133 +1,213 @@
 <sync rows="512">
 	<tracks>
-		<track name="galaxy_cam_dist">
-			<key interpolation="2" row="129" value="500"/>
-			<key interpolation="0" row="144" value="300"/>
-			<key interpolation="2" row="161" value="300"/>
-			<key interpolation="2" row="179" value="200"/>
-			<key interpolation="0" row="197" value="150"/>
-			<key interpolation="0" row="198" value="500"/>
-		</track>
-		<track name="galaxy_cam_height">
-			<key interpolation="2" row="129" value="-100"/>
-			<key interpolation="0" row="144" value="-50"/>
-			<key interpolation="0" row="203" value="300"/>
-			<key interpolation="0" row="206" value="-50"/>
-		</track>
-		<track name="galaxy_cam_angle">
-			<key interpolation="0" row="129" value="0"/>
-			<key interpolation="0" row="141" value="10"/>
-			<key interpolation="0" row="142" value="80"/>
-			<key interpolation="0" row="143" value="-10"/>
-			<key interpolation="2" row="144" value="0"/>
-			<key interpolation="2" row="159" value="90"/>
-			<key interpolation="2" row="185" value="120"/>
-			<key interpolation="0" row="197" value="0"/>
-			<key interpolation="0" row="199" value="200"/>
-			<key interpolation="0" row="200" value="0"/>
-			<key interpolation="2" row="205" value="30"/>
-			<key interpolation="3" row="236" value="60"/>
-			<key interpolation="0" row="256" value="240"/>
-		</track>
-		<track name="galaxy_cam_roll">
-			<key interpolation="2" row="129" value="0"/>
-			<key interpolation="0" row="164" value="120"/>
-		</track>
+		<track name="bg_color"/>
 		<track name="galaxy_zoom">
-			<key interpolation="0" row="129" value="0.5"/>
-			<key interpolation="0" row="141" value="0.6"/>
-			<key interpolation="0" row="144" value="0.5"/>
-			<key interpolation="2" row="161" value="0.5"/>
-			<key interpolation="0" row="176" value="1"/>
+			<key value="0.5" interpolation="0" row="129"/>
+			<key value="0.6" interpolation="0" row="141"/>
+			<key value="0.5" interpolation="0" row="144"/>
+			<key value="0.5" interpolation="2" row="161"/>
+			<key value="1" interpolation="0" row="176"/>
 		</track>
 		<track name="galaxy_speed_y">
-			<key interpolation="0" row="141" value="20"/>
-			<key interpolation="0" row="144" value="0"/>
-			<key interpolation="0" row="197" value="2"/>
-			<key interpolation="0" row="198" value="0"/>
-			<key interpolation="0" row="203" value="4"/>
-			<key interpolation="0" row="205" value="0"/>
-			<key interpolation="0" row="207" value="0"/>
-			<key interpolation="0" row="211" value="20"/>
-			<key interpolation="0" row="216" value="0"/>
-			<key interpolation="0" row="229" value="40"/>
-			<key interpolation="0" row="237" value="20"/>
-			<key interpolation="2" row="239" value="30"/>
-			<key interpolation="3" row="254" value="-1"/>
-			<key interpolation="0" row="256" value="0"/>
+			<key value="20" interpolation="0" row="141"/>
+			<key value="0" interpolation="0" row="144"/>
+			<key value="2" interpolation="0" row="197"/>
+			<key value="0" interpolation="0" row="198"/>
+			<key value="4" interpolation="0" row="203"/>
+			<key value="0" interpolation="0" row="205"/>
+			<key value="0" interpolation="0" row="207"/>
+			<key value="20" interpolation="0" row="211"/>
+			<key value="0" interpolation="0" row="216"/>
+			<key value="40" interpolation="0" row="229"/>
+			<key value="20" interpolation="0" row="237"/>
+			<key value="30" interpolation="2" row="239"/>
+			<key value="-1" interpolation="3" row="254"/>
+			<key value="0" interpolation="0" row="256"/>
 		</track>
 		<track name="galaxy_speed_x">
-			<key interpolation="0" row="141" value="10"/>
-			<key interpolation="0" row="144" value="0"/>
-			<key interpolation="0" row="199" value="2"/>
-			<key interpolation="0" row="200" value="0"/>
-			<key interpolation="0" row="203" value="4"/>
-			<key interpolation="0" row="207" value="0"/>
-			<key interpolation="0" row="211" value="30"/>
-			<key interpolation="0" row="216" value="0"/>
-			<key interpolation="0" row="229" value="50"/>
-			<key interpolation="0" row="237" value="10"/>
-			<key interpolation="2" row="239" value="20"/>
-			<key interpolation="3" row="254" value="-1"/>
-			<key interpolation="0" row="256" value="0"/>
+			<key value="10" interpolation="0" row="141"/>
+			<key value="0" interpolation="0" row="144"/>
+			<key value="2" interpolation="0" row="199"/>
+			<key value="0" interpolation="0" row="200"/>
+			<key value="4" interpolation="0" row="203"/>
+			<key value="0" interpolation="0" row="207"/>
+			<key value="30" interpolation="0" row="211"/>
+			<key value="0" interpolation="0" row="216"/>
+			<key value="50" interpolation="0" row="229"/>
+			<key value="10" interpolation="0" row="237"/>
+			<key value="20" interpolation="2" row="239"/>
+			<key value="-1" interpolation="3" row="254"/>
+			<key value="0" interpolation="0" row="256"/>
 		</track>
 		<track name="galaxy_speed_z">
-			<key interpolation="2" row="129" value="10"/>
-			<key interpolation="0" row="200" value="1"/>
+			<key value="10" interpolation="2" row="129"/>
+			<key value="1" interpolation="0" row="200"/>
 		</track>
 		<track name="galaxy_hue_shift">
-			<key interpolation="0" row="129" value="0"/>
-			<key interpolation="2" row="141" value="1"/>
-			<key interpolation="0" row="142" value="0"/>
-			<key interpolation="0" row="143" value="1"/>
-			<key interpolation="0" row="144" value="0"/>
-			<key interpolation="0" row="196" value="1"/>
-			<key interpolation="0" row="197" value="0"/>
-			<key interpolation="0" row="198" value="1"/>
-			<key interpolation="0" row="199" value="0"/>
-			<key interpolation="0" row="200" value="1"/>
-			<key interpolation="0" row="201" value="0"/>
-			<key interpolation="0" row="203" value="1"/>
-			<key interpolation="0" row="204" value="0"/>
-			<key interpolation="0" row="205" value="1"/>
-			<key interpolation="0" row="206" value="0"/>
-			<key interpolation="0" row="207" value="1"/>
-			<key interpolation="0" row="208" value="0"/>
-			<key interpolation="0" row="211" value="1"/>
-			<key interpolation="0" row="212" value="0"/>
-			<key interpolation="0" row="213" value="1"/>
-			<key interpolation="0" row="214" value="0"/>
-			<key interpolation="0" row="215" value="1"/>
-			<key interpolation="0" row="216" value="0"/>
-			<key interpolation="0" row="229" value="1"/>
-			<key interpolation="0" row="230" value="0"/>
-			<key interpolation="0" row="231" value="1"/>
-			<key interpolation="0" row="232" value="0"/>
-			<key interpolation="0" row="236" value="1"/>
-			<key interpolation="0" row="237" value="0"/>
-			<key interpolation="0" row="253" value="1"/>
-			<key interpolation="0" row="254" value="0"/>
-			<key interpolation="0" row="255" value="1"/>
-			<key interpolation="0" row="256" value="0"/>
+			<key value="0" interpolation="0" row="129"/>
+			<key value="1" interpolation="2" row="141"/>
+			<key value="0" interpolation="0" row="142"/>
+			<key value="1" interpolation="0" row="143"/>
+			<key value="0" interpolation="0" row="144"/>
+			<key value="1" interpolation="0" row="196"/>
+			<key value="0" interpolation="0" row="197"/>
+			<key value="1" interpolation="0" row="198"/>
+			<key value="0" interpolation="0" row="199"/>
+			<key value="1" interpolation="0" row="200"/>
+			<key value="0" interpolation="0" row="201"/>
+			<key value="1" interpolation="0" row="203"/>
+			<key value="0" interpolation="0" row="204"/>
+			<key value="1" interpolation="0" row="205"/>
+			<key value="0" interpolation="0" row="206"/>
+			<key value="1" interpolation="0" row="207"/>
+			<key value="0" interpolation="0" row="208"/>
+			<key value="1" interpolation="0" row="211"/>
+			<key value="0" interpolation="0" row="212"/>
+			<key value="1" interpolation="0" row="213"/>
+			<key value="0" interpolation="0" row="214"/>
+			<key value="1" interpolation="0" row="215"/>
+			<key value="0" interpolation="0" row="216"/>
+			<key value="1" interpolation="0" row="229"/>
+			<key value="0" interpolation="0" row="230"/>
+			<key value="1" interpolation="0" row="231"/>
+			<key value="0" interpolation="0" row="232"/>
+			<key value="1" interpolation="0" row="236"/>
+			<key value="0" interpolation="0" row="237"/>
+			<key value="1" interpolation="0" row="253"/>
+			<key value="0" interpolation="0" row="254"/>
+			<key value="1" interpolation="0" row="255"/>
+			<key value="0" interpolation="0" row="256"/>
 		</track>
 		<track name="galaxy_stroke_weight">
-			<key interpolation="0" row="129" value="0.1"/>
-			<key interpolation="0" row="141" value="1"/>
-			<key interpolation="0" row="144" value="0.1"/>
-			<key interpolation="2" row="160" value="0.1"/>
-			<key interpolation="0" row="171" value="1"/>
-			<key interpolation="2" row="184" value="1"/>
-			<key interpolation="0" row="199" value="1"/>
+			<key value="0.1" interpolation="0" row="129"/>
+			<key value="1" interpolation="0" row="141"/>
+			<key value="0.1" interpolation="0" row="144"/>
+			<key value="0.1" interpolation="2" row="160"/>
+			<key value="1" interpolation="0" row="171"/>
+			<key value="1" interpolation="2" row="184"/>
+			<key value="1" interpolation="0" row="199"/>
 		</track>
-		<track name="worm_opacity">
-			<key interpolation="1" row="379" value="0"/>
-			<key interpolation="1" row="391" value="255"/>
-			<key interpolation="0" row="408" value="255"/>
-			<key interpolation="1" row="448" value="255"/>
-			<key interpolation="0" row="470" value="0"/>
+		<track name="galaxy_cam_dist">
+			<key value="500" interpolation="2" row="129"/>
+			<key value="300" interpolation="0" row="144"/>
+			<key value="300" interpolation="2" row="161"/>
+			<key value="200" interpolation="2" row="179"/>
+			<key value="150" interpolation="0" row="197"/>
+			<key value="500" interpolation="0" row="198"/>
+			<key value="500" interpolation="2" row="258"/>
+			<key value="600" interpolation="2" row="261"/>
+			<key value="500" interpolation="2" row="264"/>
+			<key value="600" interpolation="2" row="267"/>
+			<key value="500" interpolation="2" row="270"/>
+			<key value="600" interpolation="2" row="273"/>
+			<key value="500" interpolation="2" row="276"/>
+			<key value="600" interpolation="2" row="279"/>
+			<key value="500" interpolation="2" row="282"/>
+			<key value="600" interpolation="2" row="285"/>
+			<key value="500" interpolation="2" row="288"/>
+			<key value="600" interpolation="2" row="291"/>
+			<key value="500" interpolation="2" row="294"/>
+			<key value="600" interpolation="2" row="297"/>
+			<key value="400" interpolation="0" row="300"/>
+			<key value="1000" interpolation="0" row="301"/>
+			<key value="300" interpolation="0" row="302"/>
+			<key value="500" interpolation="0" row="303"/>
+			<key value="600" interpolation="0" row="307"/>
+			<key value="500" interpolation="0" row="310"/>
+			<key value="600" interpolation="0" row="313"/>
+			<key value="500" interpolation="2" row="316"/>
+			<key value="1000" interpolation="3" row="320"/>
+			<key value="500" interpolation="0" row="333"/>
+		</track>
+		<track name="galaxy_cam_height">
+			<key value="-100" interpolation="2" row="129"/>
+			<key value="-50" interpolation="0" row="144"/>
+			<key value="300" interpolation="0" row="203"/>
+			<key value="-50" interpolation="0" row="206"/>
+			<key value="0" interpolation="2" row="258"/>
+			<key value="100" interpolation="2" row="279"/>
+			<key value="0" interpolation="3" row="290"/>
+			<key value="-100" interpolation="0" row="303"/>
+			<key value="100" interpolation="2" row="328"/>
+			<key value="500" interpolation="2" row="333"/>
+			<key value="-500" interpolation="2" row="368"/>
+			<key value="1000" interpolation="0" row="377"/>
+		</track>
+		<track name="galaxy_cam_angle">
+			<key value="0" interpolation="0" row="129"/>
+			<key value="10" interpolation="0" row="141"/>
+			<key value="80" interpolation="0" row="142"/>
+			<key value="-10" interpolation="0" row="143"/>
+			<key value="0" interpolation="2" row="144"/>
+			<key value="90" interpolation="2" row="159"/>
+			<key value="120" interpolation="2" row="185"/>
+			<key value="0" interpolation="0" row="197"/>
+			<key value="200" interpolation="0" row="199"/>
+			<key value="0" interpolation="0" row="200"/>
+			<key value="30" interpolation="2" row="205"/>
+			<key value="60" interpolation="3" row="236"/>
+			<key value="240" interpolation="0" row="256"/>
+			<key value="0" interpolation="2" row="258"/>
+			<key value="360" interpolation="2" row="280"/>
+			<key value="0" interpolation="0" row="286"/>
+			<key value="90" interpolation="0" row="302"/>
+			<key value="0" interpolation="0" row="303"/>
+			<key value="0" interpolation="3" row="320"/>
+			<key value="90" interpolation="2" row="330"/>
+			<key value="-90" interpolation="0" row="368"/>
+		</track>
+		<track name="galaxy_cam_roll">
+			<key value="0" interpolation="2" row="129"/>
+			<key value="120" interpolation="0" row="164"/>
+			<key value="0" interpolation="2" row="258"/>
+			<key value="90" interpolation="3" row="268"/>
+			<key value="180" interpolation="0" row="286"/>
+			<key value="44" interpolation="0" row="300"/>
+			<key value="0" interpolation="0" row="301"/>
+			<key value="0" interpolation="2" row="328"/>
+			<key value="90" interpolation="0" row="343"/>
+		</track>
+		<track name="meta_noise_amp">
+			<key value="1" interpolation="0" row="258"/>
+			<key value="2" interpolation="0" row="269"/>
+			<key value="1" interpolation="0" row="270"/>
+			<key value="2" interpolation="0" row="271"/>
+			<key value="1" interpolation="0" row="272"/>
+			<key value="2" interpolation="0" row="279"/>
+			<key value="1" interpolation="2" row="288"/>
+			<key value="2" interpolation="0" row="296"/>
+			<key value="4" interpolation="0" row="304"/>
+			<key value="4" interpolation="3" row="320"/>
+			<key value="0" interpolation="2" row="328"/>
+			<key value="1" interpolation="3" row="333"/>
+			<key value="5" interpolation="0" row="341"/>
+		</track>
+		<track name="meta_noise_freq">
+			<key value="0" interpolation="2" row="258"/>
+			<key value="5" interpolation="2" row="264"/>
+			<key value="0.1" interpolation="2" row="268"/>
+			<key value="2" interpolation="0" row="269"/>
+			<key value="1" interpolation="0" row="270"/>
+			<key value="2" interpolation="0" row="271"/>
+			<key value="2" interpolation="2" row="272"/>
+			<key value="1" interpolation="0" row="279"/>
+			<key value="1" interpolation="2" row="288"/>
+			<key value="2" interpolation="0" row="296"/>
+			<key value="10" interpolation="0" row="301"/>
+			<key value="1" interpolation="0" row="302"/>
+			<key value="10" interpolation="0" row="303"/>
+			<key value="10" interpolation="3" row="320"/>
+			<key value="5" interpolation="0" row="326"/>
+			<key value="0" interpolation="2" row="328"/>
+			<key value="1" interpolation="3" row="333"/>
+			<key value="3" interpolation="0" row="341"/>
+		</track>
+		<track name="meta_noise_time">
+			<key value="0" interpolation="2" row="258"/>
+			<key value="5" interpolation="0" row="265"/>
 		</track>
 	</tracks>
 	<bookmarks>
-		<bookmark row="391"/>
+		<bookmark row="129"/>
 	</bookmarks>
 </sync>

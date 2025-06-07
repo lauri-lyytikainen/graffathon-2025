@@ -9,8 +9,8 @@ Moonlander moonlander;
 SceneHandler sceneHandler;
 
 void settings() {
-  // size(CANVAS_WIDTH, CANVAS_HEIGHT, P3D);
-  fullScreen(P3D);
+  size(CANVAS_WIDTH, CANVAS_HEIGHT, P3D);
+  // fullScreen(P3D);
 }
 
 void setup() {
@@ -18,8 +18,7 @@ void setup() {
 
   sceneHandler = new SceneHandler();
   sceneHandler.addScene(new GalaxyScene(14.0, 28.0));
-  sceneHandler.addScene(new DnaScene(28.0, 41.0));
-  sceneHandler.addScene(new WormScene(41.0, 51.0));
+  sceneHandler.addScene(new MetaBallScene(28.0, 42.0));
 
 
   moonlander = Moonlander.initWithSoundtrack(this, "../glxblt_-_swookie.mp3", 138, 4);
