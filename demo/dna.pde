@@ -2,6 +2,7 @@ class DnaScene extends EffectScene {
 
     public DnaScene(float startTime, float endTime) {
         super(startTime, endTime);
+
     }
 
     public void setup()
@@ -15,7 +16,6 @@ class DnaScene extends EffectScene {
     float vMax = 0.5;
 
     int helixRes = 100;
-    float helixRadius = 20;
     float helixPitch = 20;
     float helixHeight = 300;
     float rungSpacing = 10;
@@ -32,6 +32,7 @@ class DnaScene extends EffectScene {
     }
 
     PVector helixPoint(float t, float phase, float time) {
+        float helixRadius = (float)moonlander.getValue("dna_radius");
         float angle = TWO_PI * t * 0.07 * time + phase;
         float y = helixRadius * cos(angle);
         float z = helixRadius * sin(angle);
@@ -40,39 +41,109 @@ class DnaScene extends EffectScene {
     }
 
     public void draw(float time) {
-        background(110, 42, 110);
-        lights();
-        translate(width/2, height/2, 0);
-        rotateX(-PI/6);
-        rotateY(frameCount * 0.01);
+        // Get camera control values from Moonlander
+        float camDist = (float)moonlander.getValue("galaxy_cam_dist");  // Distance from center
+        float camHeight = (float)moonlander.getValue("galaxy_cam_height"); // Height above galaxy plane
+        float camAngle = (float)moonlander.getValue("galaxy_cam_angle");  // Angle around galaxy
+        float camRoll = (float)moonlander.getValue("galaxy_cam_roll");    // Camera roll
+        
+        // Calculate camera position based on angle and distance
+        float camX = sin(radians(camAngle)) * camDist;
+        float camY = cos(radians(camAngle)) * camDist;
+        float camZ = camHeight;
+        
+        // Calculate up vector for camera roll
+        float upX = sin(radians(camRoll)) * 0.3;
+        float upY = cos(radians(camRoll)) * 0.3;
+        float upZ = 1.0;
+        
+        // Apply the camera
+        camera(camX, camY, camZ,           // Camera position
+            0, 0, 0,                   // Always look at center
+            upX, upY, upZ);            // Up vector for roll
 
+        background(110, 42, 110);  // Background with dark purple, ocean-like feel
+        lights();
+        translate(width/4, height/4, 0);
+        fill(255,255,255);
+        textSize(100);
+        text("Hi", 0, 0, 0);
+        
         float du = (uMax - uMin) / (resU - 1);
         float dv = (vMax - vMin) / (resV - 1);
-        
+
         float tMax = helixHeight / helixPitch;
         float dt = tMax / float(helixRes);
-        
-        pointLight(51, 102, 126, 20, 20, 20);
 
+        pointLight(51, 102, 126, 20, 20, 20);  // Light for better visualization
+
+        // Loop through the helix height (t) to create the strands and base pairs
         for (float t = 0; t < tMax; t += dt) {
             // Compute positions for both helices
             PVector p1 = helixPoint(t, 0, time);
-            PVector p2 = helixPoint(t, PI, time);  // Opposite phase for second helix
+            PVector p2 = helixPoint(t, PI, time);  // Opposite phase for the second helix
 
-            // Draw helix strands
-            stroke(255, 100, 150);
-            strokeWeight(4);
-            point(p1.x, p1.y, p1.z);
-            //pointLight(51, 102, 126, p1.x, p1.y, p1.z);
-            stroke(100, 150, 255);
-            point(p2.x, p2.y, p2.z);
-            //pointLight(51, 102, 126, p2.x, p2.y, p2.z);
+            // Alternate base pairs (A-T, C-G)
+            String basePair = (int(t * 5) % 2 == 0) ? "AT" : "CG";  // Alternate AT and CG pairs
 
-            // Draw rungs between strands at intervals
+            float noiseVal = noise(0.05, 0.05, time * 0.5);
+            float displacement = map(noiseVal, 0, 1, -50, 50);
+
+            // Color points based on the base pair
+            if (basePair.equals("AT")) {
+                stroke(255, 0, 0);  // Red for A-T pairs (p1)
+                strokeWeight(4);
+                point(p1.x + displacement, p1.y + displacement, p1.z);  // Point on first helix (A)
+                
+                stroke(0, 0, 255);  // Blue for A-T pairs (p2)
+                point(p2.x, p2.y, p2.z);  // Point on second helix (T)
+                stroke(255, 0, 0);  // Red for A-T pairs
+                fill(255, 0, 0);
+                textSize(24);
+                text("A-T", p1.x, p1.y, p1.z);
+            } else {
+                stroke(0, 255, 0);  // Green for C-G pairs (p1)
+                strokeWeight(4);
+                point(p1.x, p1.y, p1.z);  // Point on first helix (C)
+                
+                stroke(255, 255, 0);  // Yellow for C-G pairs (p2)
+                point(p2.x + displacement, p2.y + displacement, p2.z);  // Point on second helix (G)
+
+                stroke(0, 255, 0);  // Green for C-G pairs
+                fill(0, 255, 0);
+                textSize(24);
+                text("C-G", p2.x, p2.y, p2.z);  // Label "C-G"
+            }
+
+            // Draw rungs between strands at intervals (base pairs)
             if (int(t * rungSpacing) % 5 == 0) {
-            stroke(200);
-            strokeWeight(1);
-            line(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
+                // Alternate base pairs (A-T, C-G)
+                basePair = (int(t * 5) % 2 == 0) ? "AT" : "CG";  // Alternate AT and CG pairs
+                PVector midPoint = PVector.lerp(p1, p2, 0.5);  // Midpoint between the two strands for base pair
+
+                // Color and label based on the base pair
+                if (basePair.equals("AT")) {
+                    stroke(255, 0, 0);  // Red for A-T pairs
+                    fill(255, 0, 0);
+                    textSize(100);
+                    text("A-T", midPoint.x + 5, midPoint.y + 5, midPoint.z);  // Label "A-T"
+                } else {
+                    stroke(0, 255, 0);  // Green for C-G pairs
+                    fill(0, 255, 0);
+                    textSize(100);
+                    text("C-G", midPoint.x + 5, midPoint.y + 5, midPoint.z);  // Label "C-G"
+                }
+
+                // Draw base pair connection (a line between p1 and p2)
+                strokeWeight(1);
+                line(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
+            }
+
+            // Optional: Draw the rungs (lines) at regular intervals
+            if (int(t * rungSpacing) % 5 == 0) {
+                stroke(200);
+                strokeWeight(1);
+                line(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);  // Rung connection between strands
             }
         }
     }
