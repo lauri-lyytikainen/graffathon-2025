@@ -40,10 +40,10 @@ void setup() {
 
   // Parameters: 
   // - PApplet
-  // - soundtrack filename (relative to sketch's folder)
+  // - soundtrack filename (relative to sketch's folder) 
   // - beats per minute in the song
   // - how many rows in Rocket correspond to one beat
-  moonlander = Moonlander.initWithSoundtrack(this, "../common/tekno_127bpm.mp3", 127, 8);
+  moonlander = Moonlander.initWithSoundtrack(this, "../glxblt_-_swookie.mp3", 138, 4);
 
   // Last thing in setup; start Moonlander. This either
   // connects to Rocket (development mode) or loads data 
