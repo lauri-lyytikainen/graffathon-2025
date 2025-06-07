@@ -1,53 +1,8 @@
-PVector catmullRom(PVector p0, PVector p1, PVector p2, PVector p3, float t) {
-  float t2 = t * t;
-  float t3 = t2 * t;
-
-  float f1 = -0.5 * t3 + t2 - 0.5 * t;
-  float f2 =  1.5 * t3 - 2.5 * t2 + 1.0;
-  float f3 = -1.5 * t3 + 2.0 * t2 + 0.5 * t;
-  float f4 =  0.5 * t3 - 0.5 * t2;
-
-  float x = p0.x * f1 + p1.x * f2 + p2.x * f3 + p3.x * f4;
-  float y = p0.y * f1 + p1.y * f2 + p2.y * f3 + p3.y * f4;
-  float z = p0.z * f1 + p1.z * f2 + p2.z * f3 + p3.z * f4;
-
-  return new PVector(x, y, z);
-}
-
-PVector splineTangent(PVector[] pts, float s) {
-  float eps = 0.001;
-  PVector p1 = splineEval(pts, s);
-  PVector p2 = splineEval(pts, s + eps);
-  return PVector.sub(p2, p1).normalize();
-}
-
-PVector splineEval(PVector[] pts, float s) {
-  int n = pts.length - 3;
-  int seg = constrain(int(s * n), 0, n - 1);
-  float t = s * n - seg;
-  return catmullRom(pts[seg], pts[seg+1], pts[seg+2], pts[seg+3], t);
-}
-
-void getSplineFrame(PVector[] pts, float s, PVector[] frameOut) {
-  float eps = 0.001;
-  PVector p = splineEval(pts, s);
-  PVector pNext = splineEval(pts, s + eps);
-
-  PVector T = PVector.sub(pNext, p).normalize();      // Tangent
-  PVector up = new PVector(0, 1, 0);                  // Up direction
-  PVector N = T.cross(up).normalize();                // Normal (side)
-  PVector B = T.cross(N).normalize();                 // Binormal (up)
-
-  frameOut[0] = T;  // Tangent
-  frameOut[1] = N;  // Normal
-  frameOut[2] = B;  // Binormal
-}
-
-class WormScene extends EffectScene {
+class FishScene extends EffectScene {
 
     PVector[] my_controlPts;
 
-    public WormScene(float startTime, float endTime) {
+    public FishScene(float startTime, float endTime) {
         super(startTime, endTime);
     }
 
@@ -114,28 +69,6 @@ class WormScene extends EffectScene {
     }
 
     public void draw(float time) {
-
-      // Get camera control values from Moonlander
-        float camDist = (float)moonlander.getValue("galaxy_cam_dist");  // Distance from center
-        float camHeight = (float)moonlander.getValue("galaxy_cam_height"); // Height above galaxy plane
-        float camAngle = (float)moonlander.getValue("galaxy_cam_angle");  // Angle around galaxy
-        float camRoll = (float)moonlander.getValue("galaxy_cam_roll");    // Camera roll
-        
-        // Calculate camera position based on angle and distance
-        float camX = sin(radians(camAngle)) * camDist;
-        float camY = cos(radians(camAngle)) * camDist;
-        float camZ = camHeight;
-        
-        // Calculate up vector for camera roll
-        float upX = sin(radians(camRoll)) * 0.3;
-        float upY = cos(radians(camRoll)) * 0.3;
-        float upZ = 1.0;
-        
-        // Apply the camera
-        camera(camX, camY, camZ,           // Camera position
-            0, 0, 0,                   // Always look at center
-            upX, upY, upZ);
-
       background(20, 30, 50);  // Dark ocean depths
       ambientLight(80, 100, 120);  // Dim ambient light for deep ocean feel
 
@@ -150,8 +83,8 @@ class WormScene extends EffectScene {
       translate(width / 2 - wormCenter.x, height / 2 - wormCenter.y, 0);  // Center the worm in the view
 
       // Optional: Rotate the view to make the worm rotate with time
-      //rotateX(-PI / 6);
-      //rotateY(time);
+      rotateX(-PI / 6);
+      rotateY(time);
 
       // 2. Worm rendering logic (color, bioluminescence, etc.)
       float du = (uMax - uMin) / (resU - 1);
