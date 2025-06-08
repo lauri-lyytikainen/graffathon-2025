@@ -105,9 +105,19 @@ class OutroScene extends EffectScene {
             // Draw text
             fill(0);
             textAlign(CENTER, CENTER);
-            float txtSize = constrain(boxH * 0.5, 10, min(width, height) * 0.045);
+
+            // Dynamically fit text size to box
+            float maxTxtSize = boxH * 0.5;
+            float minTxtSize = 10;
+            float txtSize = maxTxtSize;
             textSize(txtSize);
-            text(text, x + boxW/2, y + boxH/2 + 1); // +1 for better vertical centering
+            // Shrink text if it overflows box width
+            while (textWidth(text) > boxW * 0.92 && txtSize > minTxtSize) {
+                txtSize -= 1;
+                textSize(txtSize);
+            }
+            text(text, x + boxW/2, y + boxH/2);
+
         }
 
         // Fade to black when normalized time is 0.75 to 1
