@@ -73,7 +73,7 @@ class OutroScene extends EffectScene {
         }
 
         // --- White boxes with black letters ---
-        String[] baseTexts = {"Evolution", "Todo & Nora", "Graffathon_2025"};
+        String[] baseTexts = {"Evolution", "Todo & Nora", "Graffathon_2025", "Music: glxblt - Swookie"};
         // Use smaller box size for small windows
         float minDim = min(width, height);
         float boxW = constrain(width * 0.4, 120, minDim * 0.9);
@@ -81,12 +81,13 @@ class OutroScene extends EffectScene {
         float marginX = width * 0.05;
         float marginY = height * 0.05;
         float[][] boxPositions = {
-            { constrain(width * 0.25 - boxW/2, marginX, width - boxW - marginX), constrain(height * 0.18 - boxH/2, marginY, height - boxH - marginY) }, // top center
-            { constrain(width * 0.5 - boxW/2, marginX, width - boxW - marginX), constrain(height * 0.5 - boxH/2, marginY, height - boxH - marginY) },  // middle center
-            { constrain(width * 0.75 - boxW/2, marginX, width - boxW - marginX), constrain(height * 0.82 - boxH/2, marginY, height - boxH - marginY) }  // bottom center
+            { constrain(width * 0.25 - boxW, marginX, width - boxW - marginX), constrain(height * 0.18 - boxH, marginY, height - boxH - marginY) }, // top left
+            { constrain(width * 0.5 - boxW, marginX, width - boxW - marginX), constrain(height * 0.5 - boxH, marginY, height - boxH - marginY) },  // middle center
+            { constrain(width * 0.75 - boxW, marginX, width - boxW - marginX), constrain(height * 0.82 - boxH, marginY, height - boxH - marginY) }, // bottom right
+            { constrain(width * 0.5 - boxW, marginX, width - boxW - marginX), constrain(height * 0.95 - boxH, marginY, height - boxH - marginY) }  // bottom center for music
         };
         String[] symbols = {"#", "@", "*", "-", "+", "=", "%", "^", "~"};
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             // Generate random number and symbol suffix
             int num = int(abs(sin(time + i) * 999));
             String symbol = symbols[(i + int(time * 2)) % symbols.length];
