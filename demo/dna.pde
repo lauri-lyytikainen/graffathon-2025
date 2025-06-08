@@ -46,34 +46,44 @@ class DnaScene extends EffectScene {
         float camHeight = (float)moonlander.getValue("galaxy_cam_height"); // Height above galaxy plane
         float camAngle = (float)moonlander.getValue("galaxy_cam_angle");  // Angle around galaxy
         float camRoll = (float)moonlander.getValue("galaxy_cam_roll");    // Camera roll
-        
-        // Calculate camera position based on angle and distance
-        float camX = sin(radians(camAngle)) * camDist;
-        float camY = cos(radians(camAngle)) * camDist;
-        float camZ = camHeight;
-        
+
+        // Compute helix center by averaging helix points
+        float tMax = helixHeight / helixPitch;
+        float dt = tMax / float(helixRes);
+        PVector helixCenter = new PVector(0, 0, 0);
+        int helixCount = 0;
+        for (float t = 0; t < tMax; t += dt) {
+            helixCenter.add(helixPoint(t, 0, time));
+            helixCenter.add(helixPoint(t, PI, time));
+            helixCount += 2;
+        }
+        helixCenter.div(helixCount);
+
+        // Calculate camera position based on angle and distance, relative to helix center
+        float camX = helixCenter.x + sin(radians(camAngle)) * camDist;
+        float camY = helixCenter.y + cos(radians(camAngle)) * camDist;
+        float camZ = helixCenter.z + camHeight;
+
         // Calculate up vector for camera roll
         float upX = sin(radians(camRoll)) * 0.3;
         float upY = cos(radians(camRoll)) * 0.3;
         float upZ = 1.0;
-        
-        // Apply the camera
-        camera(camX, camY, camZ,           // Camera position
-            0, 0, 0,                   // Always look at center
-            upX, upY, upZ);            // Up vector for roll
+
+        // Apply the camera, looking at helix center
+        camera(camX, camY, camZ,
+               helixCenter.x, helixCenter.y, helixCenter.z,
+               upX, upY, upZ);
 
         background(110, 42, 110);  // Background with dark purple, ocean-like feel
         lights();
-        translate(width/4, height/4, 0);
+
+        rotateX(QUARTER_PI); // Rotate to view the helix from the side
+
+        // No need to translate, camera is already centered
         fill(255,255,255);
-        textSize(100);
-        text("Hi", 0, 0, 0);
         
         float du = (uMax - uMin) / (resU - 1);
         float dv = (vMax - vMin) / (resV - 1);
-
-        float tMax = helixHeight / helixPitch;
-        float dt = tMax / float(helixRes);
 
         pointLight(51, 102, 126, 20, 20, 20);  // Light for better visualization
 
@@ -125,12 +135,12 @@ class DnaScene extends EffectScene {
                 if (basePair.equals("AT")) {
                     stroke(255, 0, 0);  // Red for A-T pairs
                     fill(255, 0, 0);
-                    textSize(100);
+                    textSize(32);
                     text("A-T", midPoint.x + 5, midPoint.y + 5, midPoint.z);  // Label "A-T"
                 } else {
                     stroke(0, 255, 0);  // Green for C-G pairs
                     fill(0, 255, 0);
-                    textSize(100);
+                    textSize(32);
                     text("C-G", midPoint.x + 5, midPoint.y + 5, midPoint.z);  // Label "C-G"
                 }
 

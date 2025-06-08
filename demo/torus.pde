@@ -35,7 +35,26 @@ class TorusScene extends EffectScene {
     public void draw(float time) {
         pushMatrix();
         translate(width/2, height/2);
-        rotateY(time);
+        float camDist = (float)moonlander.getValue("galaxy_cam_dist");  // Distance from center
+        float camHeight = (float)moonlander.getValue("galaxy_cam_height"); // Height above galaxy plane
+        float camAngle = (float)moonlander.getValue("galaxy_cam_angle");  // Angle around galaxy
+        float camRoll = (float)moonlander.getValue("galaxy_cam_roll");    // Camera roll
+        
+        // Calculate camera position based on angle and distance
+        float camX = sin(radians(camAngle)) * camDist;
+        float camY = cos(radians(camAngle)) * camDist;
+        float camZ = camHeight;
+        
+        // Calculate up vector for camera roll
+        float upX = sin(radians(camRoll)) * 0.3;
+        float upY = cos(radians(camRoll)) * 0.3;
+        float upZ = 1.0;
+        
+        // Apply the camera
+        camera(camX, camY, camZ,           // Camera position
+               0, 0, 0,                   // Always look at center
+               upX, upY, upZ);            // Up vector for roll
+        rotateY((float)moonlander.getValue("dna_radius"));  // Rotate the torus based on moonlander value
 
         background(20, 30, 50);  // Dark ocean-like background
         lights();
