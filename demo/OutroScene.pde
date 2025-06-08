@@ -72,53 +72,41 @@ class OutroScene extends EffectScene {
             }
         }
 
-        // --- White boxes with black letters ---
-        String[] baseTexts = {"Evolution", "Todo & Nora", "Graffathon_2025", "Music: glxblt - Swookie"};
-        // Use smaller box size for small windows
-        float minDim = min(width, height);
-        float boxW = constrain(width * 0.4, 120, minDim * 0.9);
-        float boxH = constrain(height * 0.10, 32, minDim * 0.25);
+        // --- White boxes with black letters (copied from introScene style) ---
+        String[] outroTexts = {"Evolution", "Todo & Nora", "Graffathon_2025", "Music: glxblt - Swookie"};
+        float nodeW = width * 0.35;
+        float nodeH = height * 0.10;
         float marginX = width * 0.05;
         float marginY = height * 0.05;
-        float[][] boxPositions = {
-            { constrain(width * 0.25 - boxW, marginX, width - boxW - marginX), constrain(height * 0.18 - boxH, marginY, height - boxH - marginY) }, // top left
-            { constrain(width * 0.5 - boxW, marginX, width - boxW - marginX), constrain(height * 0.5 - boxH, marginY, height - boxH - marginY) },  // middle center
-            { constrain(width * 0.75 - boxW, marginX, width - boxW - marginX), constrain(height * 0.82 - boxH, marginY, height - boxH - marginY) }, // bottom right
-            { constrain(width * 0.5 - boxW, marginX, width - boxW - marginX), constrain(height * 0.95 - boxH, marginY, height - boxH - marginY) }  // bottom center for music
+        float[][] outroPositions = {
+            { marginX + nodeW/2, marginY + nodeH/2 }, // top left
+            { width - marginX - nodeW/2, marginY + nodeH/2 }, // top right
+            { width/2, height - marginY - nodeH/2 }, // bottom center
+            { width/2, height/2 } // center for music
         };
-        String[] symbols = {"#", "@", "*", "-", "+", "=", "%", "^", "~"};
         for (int i = 0; i < 4; i++) {
-            // Generate random number and symbol suffix
-            int num = int(abs(sin(time + i) * 999));
-            String symbol = symbols[(i + int(time * 2)) % symbols.length];
-            String text = baseTexts[i] + "-" + num + symbol;
-            // Reduce movement for small windows
-            float moveScale = map(minDim, 120, 600, 2, 12);
-            moveScale = constrain(moveScale, 2, 12);
-            float moveX = sin(time * 1.2 + i) * moveScale + cos(time * 0.7 + i * 2) * (moveScale * 0.6);
-            float moveY = cos(time * 1.1 + i * 1.5) * (moveScale * 0.8) + sin(time * 0.9 + i) * (moveScale * 0.5);
-            float x = constrain(boxPositions[i][0] + moveX, marginX, width - boxW - marginX);
-            float y = constrain(boxPositions[i][1] + moveY, marginY, height - boxH - marginY);
-            // Draw box
-            noStroke();
+            float x = outroPositions[i][0];
+            float y = outroPositions[i][1];
+            pushMatrix();
+            translate(x, y, 0);
             fill(255);
-            rect(x, y, boxW, boxH);
-            // Draw text
+            noStroke();
+            rectMode(CENTER);
+            if (i == 3) {
+                // Center box for music
+                nodeW = width * 0.5;
+            }
+            rect(0, 0, nodeW, nodeH);
             fill(0);
             textAlign(CENTER, CENTER);
-
-            // Dynamically fit text size to box
-            float maxTxtSize = boxH * 0.5;
-            float minTxtSize = 10;
-            float txtSize = maxTxtSize;
-            textSize(txtSize);
-            // Shrink text if it overflows box width
-            while (textWidth(text) > boxW * 0.92 && txtSize > minTxtSize) {
-                txtSize -= 1;
-                textSize(txtSize);
-            }
-            text(text, x + boxW/2, y + boxH/2);
-
+            textSize(min(width, height) * 0.045);
+            // Generate a changing suffix of numbers/symbols
+            int num = int(abs(sin(time + i) * 999));
+            String[] symbols = {"#", "@", "*", "-", "+", "=", "%", "^", "~"};
+            String symbol = symbols[(i + int(time * 2)) % symbols.length];
+            String text = outroTexts[i] + "-" + num + symbol;
+            text(text, 0, 0);
+            popMatrix();
         }
 
         // Fade to black when normalized time is 0.75 to 1
