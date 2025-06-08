@@ -105,8 +105,9 @@ class OutroScene extends EffectScene {
             // Draw text
             fill(0);
             textAlign(CENTER, CENTER);
-            textSize(constrain(min(width, height) * 0.045, 10, boxH * 0.5));
-            text(text, x + boxW/2, y + boxH/2);
+            float txtSize = constrain(boxH * 0.5, 10, min(width, height) * 0.045);
+            textSize(txtSize);
+            text(text, x + boxW/2, y + boxH/2 + 1); // +1 for better vertical centering
         }
 
         // Fade to black when normalized time is 0.75 to 1
@@ -114,7 +115,7 @@ class OutroScene extends EffectScene {
             float fadeAmt = map(normalizedTime, 0.75, 1.0, 0, 255);
             noStroke();
             fill(0, constrain(fadeAmt, 0, 255));
-            rect(0, 0, width, height);
+            rect(0, 0, width*3, height*3);
         }
     }
 }

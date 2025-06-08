@@ -146,9 +146,8 @@ class WormScene extends EffectScene {
       }
       wormCenter.div(my_controlPts.length);  // Get the average (center) of the worm
 
-      // 1. Translate the scene so that the worm's center is at the origin (centered)
-      translate(width / 2 - wormCenter.x, height / 2 - wormCenter.y, 0);  // Center the worm in the view
-
+      // 1. Translate the scene so that the worm's center is at the center of the screen
+      
       // Optional: Rotate the view to make the worm rotate with time
       //rotateX(-PI / 6);
       //rotateY(time);
