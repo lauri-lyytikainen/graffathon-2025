@@ -1,4 +1,4 @@
-<sync rows="1024">
+<sync rows="2048">
 	<tracks>
 		<track name="galaxy_zoom">
 			<key interpolation="0" value="0.5" row="129"/>
@@ -6,7 +6,32 @@
 			<key interpolation="0" value="0.5" row="144"/>
 			<key interpolation="2" value="0.5" row="161"/>
 			<key interpolation="0" value="1" row="176"/>
+			<key interpolation="2" value="1" row="1024"/>
+			<key interpolation="2" value="0.7" row="1026"/>
+			<key interpolation="0" value="1" row="1030"/>
+			<key interpolation="2" value="1" row="1038"/>
+			<key interpolation="2" value="0.7" row="1040"/>
+			<key interpolation="0" value="1" row="1044"/>
+			<key interpolation="2" value="1" row="1054"/>
+			<key interpolation="2" value="0.7" row="1056"/>
+			<key interpolation="0" value="1" row="1060"/>
+			<key interpolation="2" value="1" row="1071"/>
+			<key interpolation="2" value="0.7" row="1073"/>
+			<key interpolation="0" value="1" row="1077"/>
+			<key interpolation="2" value="1" row="1087"/>
+			<key interpolation="2" value="0.7" row="1089"/>
+			<key interpolation="0" value="1" row="1093"/>
+			<key interpolation="2" value="1" row="1102"/>
+			<key interpolation="2" value="0.7" row="1104"/>
+			<key interpolation="0" value="1" row="1108"/>
+			<key interpolation="2" value="1" row="1118"/>
+			<key interpolation="2" value="0.7" row="1120"/>
+			<key interpolation="0" value="1" row="1124"/>
+			<key interpolation="2" value="1" row="1134"/>
+			<key interpolation="2" value="0.7" row="1136"/>
+			<key interpolation="0" value="1" row="1140"/>
 		</track>
+		<track name="bg_color"/>
 		<track name="galaxy_speed_y">
 			<key interpolation="0" value="20" row="141"/>
 			<key interpolation="0" value="0" row="144"/>
@@ -22,8 +47,15 @@
 			<key interpolation="2" value="30" row="239"/>
 			<key interpolation="3" value="-1" row="254"/>
 			<key interpolation="0" value="0" row="256"/>
+			<key interpolation="0" value="5" row="1026"/>
+			<key interpolation="0" value="10" row="1040"/>
+			<key interpolation="3" value="1" row="1056"/>
+			<key interpolation="0" value="-1" row="1072"/>
+			<key interpolation="2" value="0" row="1088"/>
+			<key interpolation="2" value="-3" row="1103"/>
+			<key interpolation="1" value="3" row="1120"/>
+			<key interpolation="0" value="0" row="1136"/>
 		</track>
-		<track name="bg_color"/>
 		<track name="galaxy_speed_x">
 			<key interpolation="0" value="10" row="141"/>
 			<key interpolation="0" value="0" row="144"/>
@@ -38,10 +70,24 @@
 			<key interpolation="2" value="20" row="239"/>
 			<key interpolation="3" value="-1" row="254"/>
 			<key interpolation="0" value="0" row="256"/>
+			<key interpolation="0" value="5" row="1026"/>
+			<key interpolation="0" value="-15" row="1040"/>
+			<key interpolation="3" value="1" row="1056"/>
+			<key interpolation="0" value="1" row="1072"/>
+			<key interpolation="2" value="0" row="1088"/>
+			<key interpolation="1" value="10" row="1103"/>
+			<key interpolation="1" value="5" row="1120"/>
+			<key interpolation="0" value="0" row="1136"/>
 		</track>
 		<track name="galaxy_speed_z">
 			<key interpolation="2" value="10" row="129"/>
 			<key interpolation="0" value="1" row="200"/>
+			<key interpolation="0" value="5" row="1026"/>
+			<key interpolation="0" value="1" row="1040"/>
+			<key interpolation="2" value="1" row="1088"/>
+			<key interpolation="2" value="-1" row="1103"/>
+			<key interpolation="1" value="1" row="1120"/>
+			<key interpolation="0" value="1" row="1136"/>
 		</track>
 		<track name="galaxy_hue_shift">
 			<key interpolation="0" value="0" row="129"/>
@@ -77,6 +123,22 @@
 			<key interpolation="0" value="0" row="254"/>
 			<key interpolation="0" value="1" row="255"/>
 			<key interpolation="0" value="0" row="256"/>
+			<key interpolation="2" value="1" row="1026"/>
+			<key interpolation="0" value="0" row="1030"/>
+			<key interpolation="2" value="1" row="1040"/>
+			<key interpolation="0" value="0" row="1044"/>
+			<key interpolation="2" value="1" row="1056"/>
+			<key interpolation="0" value="0" row="1060"/>
+			<key interpolation="2" value="1" row="1072"/>
+			<key interpolation="0" value="0" row="1076"/>
+			<key interpolation="2" value="1" row="1088"/>
+			<key interpolation="0" value="0" row="1092"/>
+			<key interpolation="2" value="1" row="1104"/>
+			<key interpolation="0" value="0" row="1108"/>
+			<key interpolation="2" value="1" row="1120"/>
+			<key interpolation="0" value="0" row="1124"/>
+			<key interpolation="2" value="1" row="1136"/>
+			<key interpolation="0" value="0" row="1140"/>
 		</track>
 		<track name="galaxy_stroke_weight">
 			<key interpolation="0" value="0.1" row="129"/>
@@ -143,6 +205,20 @@
 			<key interpolation="0" value="500" row="580"/>
 			<key interpolation="2" value="500" row="688"/>
 			<key interpolation="0" value="300" row="699"/>
+			<key interpolation="2" value="1200" row="833"/>
+			<key interpolation="0" value="500" row="898"/>
+			<key interpolation="3" value="500" row="925"/>
+			<key interpolation="2" value="300" row="949"/>
+			<key interpolation="0" value="10000" row="961"/>
+			<key interpolation="1" value="1000" row="962"/>
+			<key interpolation="0" value="200" row="1025"/>
+			<key interpolation="0" value="500" row="1026"/>
+			<key interpolation="3" value="500" row="1091"/>
+			<key interpolation="0" value="1000" row="1103"/>
+			<key interpolation="3" value="1000" row="1120"/>
+			<key interpolation="0" value="500" row="1136"/>
+			<key interpolation="0" value="600" row="1184"/>
+			<key interpolation="0" value="500" row="1200"/>
 		</track>
 		<track name="galaxy_cam_height">
 			<key interpolation="2" value="-100" row="129"/>
@@ -178,6 +254,23 @@
 			<key interpolation="3" value="-200" row="672"/>
 			<key interpolation="0" value="0" row="682"/>
 			<key interpolation="0" value="0" row="688"/>
+			<key interpolation="2" value="600" row="833"/>
+			<key interpolation="0" value="800" row="897"/>
+			<key interpolation="0" value="1000" row="898"/>
+			<key interpolation="3" value="0" row="962"/>
+			<key interpolation="0" value="-100" row="1025"/>
+			<key interpolation="2" value="-100" row="1120"/>
+			<key interpolation="0" value="200" row="1136"/>
+			<key interpolation="0" value="300" row="1184"/>
+			<key interpolation="0" value="200" row="1200"/>
+			<key interpolation="0" value="500" row="1216"/>
+			<key interpolation="0" value="600" row="1234"/>
+			<key interpolation="0" value="400" row="1249"/>
+			<key interpolation="2" value="1000" row="1266"/>
+			<key interpolation="0" value="300" row="1282"/>
+			<key interpolation="0" value="800" row="1298"/>
+			<key interpolation="0" value="0" row="1314"/>
+			<key interpolation="0" value="0" row="1330"/>
 		</track>
 		<track name="galaxy_cam_angle">
 			<key interpolation="0" value="0" row="129"/>
@@ -220,6 +313,28 @@
 			<key interpolation="3" value="0" row="654"/>
 			<key interpolation="0" value="360" row="658"/>
 			<key interpolation="0" value="0" row="688"/>
+			<key interpolation="0" value="0" row="833"/>
+			<key interpolation="2" value="0" row="898"/>
+			<key interpolation="3" value="45" row="917"/>
+			<key interpolation="3" value="0" row="925"/>
+			<key interpolation="2" value="40" row="942"/>
+			<key interpolation="0" value="0" row="961"/>
+			<key interpolation="2" value="0" row="962"/>
+			<key interpolation="2" value="90" row="1025"/>
+			<key interpolation="2" value="0" row="1064"/>
+			<key interpolation="3" value="180" row="1091"/>
+			<key interpolation="0" value="90" row="1103"/>
+			<key interpolation="3" value="90" row="1120"/>
+			<key interpolation="0" value="-90" row="1149"/>
+			<key interpolation="0" value="90" row="1168"/>
+			<key interpolation="0" value="0" row="1184"/>
+			<key interpolation="0" value="90" row="1200"/>
+			<key interpolation="0" value="180" row="1216"/>
+			<key interpolation="0" value="70" row="1234"/>
+			<key interpolation="0" value="-20" row="1249"/>
+			<key interpolation="3" value="-90" row="1266"/>
+			<key interpolation="0" value="90" row="1281"/>
+			<key interpolation="0" value="0" row="1330"/>
 		</track>
 		<track name="galaxy_cam_roll">
 			<key interpolation="2" value="0" row="129"/>
@@ -253,6 +368,20 @@
 			<key interpolation="0" value="90" row="685"/>
 			<key interpolation="0" value="-90" row="686"/>
 			<key interpolation="0" value="0" row="688"/>
+			<key interpolation="0" value="0" row="833"/>
+			<key interpolation="2" value="0" row="917"/>
+			<key interpolation="3" value="30" row="925"/>
+			<key interpolation="2" value="-10" row="950"/>
+			<key interpolation="0" value="0" row="961"/>
+			<key interpolation="0" value="0" row="962"/>
+			<key interpolation="3" value="0" row="1025"/>
+			<key interpolation="3" value="90" row="1064"/>
+			<key interpolation="3" value="-45" row="1091"/>
+			<key interpolation="0" value="0" row="1103"/>
+			<key interpolation="0" value="0" row="1184"/>
+			<key interpolation="0" value="90" row="1298"/>
+			<key interpolation="0" value="0" row="1314"/>
+			<key interpolation="0" value="0" row="1330"/>
 		</track>
 		<track name="dna_radius">
 			<key interpolation="1" value="0" row="460"/>
@@ -275,6 +404,8 @@
 			<key interpolation="0" value="10" row="656"/>
 			<key interpolation="0" value="100" row="658"/>
 			<key interpolation="0" value="40" row="688"/>
+			<key interpolation="0" value="1" row="833"/>
+			<key interpolation="0" value="50" row="898"/>
 		</track>
 		<track name="meta_noise_amp">
 			<key interpolation="0" value="1" row="258"/>
@@ -290,6 +421,17 @@
 			<key interpolation="2" value="0" row="328"/>
 			<key interpolation="3" value="1" row="333"/>
 			<key interpolation="0" value="5" row="341"/>
+			<key interpolation="0" value="1" row="833"/>
+			<key interpolation="0" value="3" row="898"/>
+			<key interpolation="0" value="5" row="1168"/>
+			<key interpolation="0" value="2" row="1200"/>
+			<key interpolation="0" value="1" row="1216"/>
+			<key interpolation="0" value="4" row="1234"/>
+			<key interpolation="0" value="3" row="1249"/>
+			<key interpolation="0" value="5" row="1266"/>
+			<key interpolation="0" value="1" row="1298"/>
+			<key interpolation="0" value="2" row="1314"/>
+			<key interpolation="0" value="1" row="1330"/>
 		</track>
 		<track name="meta_noise_freq">
 			<key interpolation="2" value="0" row="258"/>
@@ -310,6 +452,15 @@
 			<key interpolation="2" value="0" row="328"/>
 			<key interpolation="3" value="1" row="333"/>
 			<key interpolation="0" value="3" row="341"/>
+			<key interpolation="0" value="2" row="1168"/>
+			<key interpolation="0" value="2" row="1200"/>
+			<key interpolation="0" value="1" row="1216"/>
+			<key interpolation="0" value="1" row="1234"/>
+			<key interpolation="0" value="2" row="1249"/>
+			<key interpolation="0" value="1" row="1266"/>
+			<key interpolation="0" value="9" row="1298"/>
+			<key interpolation="0" value="2" row="1314"/>
+			<key interpolation="0" value="1" row="1330"/>
 		</track>
 		<track name="meta_noise_time">
 			<key interpolation="2" value="0" row="258"/>

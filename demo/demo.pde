@@ -23,7 +23,10 @@ void setup() {
   sceneHandler.addScene(new WormScene(42.0, 50.0));
   sceneHandler.addScene(new TorusScene(50.0, 63.0));
   sceneHandler.addScene(new DnaScene(63.0, 76.0));
-  sceneHandler.addScene(new FishScene(76.0, 90.0));
+  sceneHandler.addScene(new FishScene(76.0, 90.5));
+  sceneHandler.addScene(new SurfaceScene(90.5, 104.5));
+  sceneHandler.addScene(new GalaxyScene(104.5, 125));
+  sceneHandler.addScene(new MetaBallScene(125, 146));
 
 
   moonlander = Moonlander.initWithSoundtrack(this, "../glxblt_-_swookie.mp3", 138, 4);
