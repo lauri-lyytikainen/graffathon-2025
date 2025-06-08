@@ -32,8 +32,8 @@ void setup() {
 
 
 
-  moonlander = Moonlander.initWithSoundtrack(this, "../glxblt_-_swookie.mp3", 138, 4);
-  moonlander.start();
+  moonlander = Moonlander.initWithSoundtrack(this, "./data/glxblt_-_swookie.mp3", 138, 4);
+  moonlander.start("localhost", 1338, "./data/syncdata.rocket");
   sceneHandler.initializeScenes();
 }
 
